@@ -36,18 +36,11 @@ bot.on('ready', function() {
 // Listener
 bot.on('message', function (userName, userID, channelID, message, rawEvent) {
     if (userID != bot.id) {
-    
-        // Makes itself known
-        if (message.match(/\b(((bu(tt|m)|arse|poop?|shit)(hole)?|buttock|fart|crap|parp)s?|(ass|gas)(es)?|assholes?)\b/i)) {
-            bot.sendMessage({
-                to: channelID,
-                message: "<@" + userID + ">: *" + makeFart() + "*"
-            });
-            console.log("i farted at " + userName);
-        }
+        
+        var responded = false;
         
         // Cloud to butt plus
-        if (message.match(/cloud/i)) {
+        if (!responded && message.match(/cloud/i)) {
             var response = message.replace(/the cloud/gi, "my butt");
             response = response.replace(/Cloud/g, "Butt");
             response = response.replace(/cloud/gi, "butt");
@@ -56,6 +49,17 @@ bot.on('message', function (userName, userID, channelID, message, rawEvent) {
                 message: "<@" + userID + "> means to say... *\"" + response + "\"*"
             });
             console.log("i corrected " + userName);
+            responded = true;
+        }
+    
+        // Makes itself known
+        if (!responded && message.match(/\b(((bu(tt|m)|arse|poop?|shit)(hole)?|buttock|fart|crap|parp)s?|(ass|gas)(es)?|assholes?)\b/i)) {
+            bot.sendMessage({
+                to: channelID,
+                message: "<@" + userID + ">: *" + makeFart() + "*"
+            });
+            console.log("i farted at " + userName);
+            responded = true;
         }
     }
 });
