@@ -38,7 +38,7 @@ bot.on('message', function (userName, userID, channelID, message, rawEvent) {
     if (userID != bot.id) {
     
         // Makes itself known
-        if (message.match(/\b(butt|bum|buttock|ass|arse|fart|gas|poo|shit|crap)\b/i)) {
+        if (message.match(/\b(((bu(tt|m)|arse|poop?|shit)(hole)?|buttock|fart|crap|parp)s?|(ass|gas)(es)?|assholes?)\b/i)) {
             bot.sendMessage({
                 to: channelID,
                 message: "<@" + userID + ">: *" + makeFart() + "*"
