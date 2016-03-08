@@ -39,6 +39,16 @@ bot.on('message', function (userName, userID, channelID, message, rawEvent) {
         
         var responded = false;
         
+        // For those who question its origin
+        if (!responded && message.match(/wh(at|o)( the (hell|fuck|heck|))?('?s| is)( that)? butt( doing( here)?)?(\?*)/i)) {
+            bot.sendMessage({
+                to: channelID,
+                message: "<@" + userID + "> I just fart at people, what do you expect? http://github.com/niksudan/butt"
+            });
+            console.log("i informed " + userName);
+            responded = true;
+        }
+        
         // Cloud to butt plus
         if (!responded && message.match(/cloud/i)) {
             var response = message.replace(/the cloud/gi, "my butt");
