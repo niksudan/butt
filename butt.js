@@ -63,7 +63,7 @@ bot.on('message', function (userName, userID, channelID, message, rawEvent) {
         }
     
         // Makes itself known
-        if (!responded && message.match(/\b(((bu(tt|m)|arse|poop?|shit)(hole)?|buttock|fart|crap|parp)s?|(ass|gas)(es)?|assholes?)\b/i)) {
+        if (!responded && message.match(/\b(((bu(tt|m)|arse|poop?|shite?|booty)(hole)?|buttock|fart|crap|parp|rectum|derriere|sphincter|bottom|rear|rump|behind)s?|(ass|gas|anus|tush)(es)?|assholes?|anal|glute(s|us maximus))\b/i)) {
             bot.sendMessage({
                 to: channelID,
                 message: "<@" + userID + ">: *" + makeFart() + "*"

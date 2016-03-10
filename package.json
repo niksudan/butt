@@ -1,0 +1,22 @@
+{
+  "name": "butt",
+  "version": "1.0.0",
+  "description": "butt",
+  "main": "butt.js",
+  "dependencies": {
+    "discord.io": "^1.8.1"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/niksudan/butt.git"
+  },
+  "keywords": [
+    "butt"
+  ],
+  "author": "butt",
+  "bugs": {
+    "url": "https://github.com/niksudan/butt/issues"
+  },
+  "homepage": "https://github.com/niksudan/butt#readme"
+}
