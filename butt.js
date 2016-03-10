@@ -40,7 +40,7 @@ bot.on('message', function (userName, userID, channelID, message, rawEvent) {
         var responded = false;
         
         // For those who question its origin
-        if (!responded && message.match(/wh(at|o)( the (hell|fuck|heck|))?('?s| is)( that)? butt( doing( here)?)?(\?*)/i)) {
+        if (!responded && message.match(/wh(at|o|y)( the (hell|fuck|heck|))?('?s| is)( that)? butt( doing( here)?)?(\?*)/i)) {
             bot.sendMessage({
                 to: channelID,
                 message: "<@" + userID + "> I just fart at people, what do you expect? http://github.com/niksudan/butt"
