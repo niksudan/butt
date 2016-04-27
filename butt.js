@@ -3,8 +3,7 @@ var config = require("./config");
 
 var bot = new Discord({
     autorun: true,
-    email: config.email,
-    password: config.password,
+    token: config.token,
     username: config.username
 });
 
