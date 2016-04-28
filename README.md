@@ -9,5 +9,5 @@ A Discord bot that's all about toilet humor
 ### Installation
 
 - `npm install`
-- Create a `config.json` in your directory with `token` and `user` fields
+- Create a `config.json` in your directory with `token` and `user` fields (You can get a token for your application [here](https://discordapp.com/developers/applications/me))
 - `node butt.js` to run
