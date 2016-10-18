@@ -1,6 +1,8 @@
 # butt
 A Discord bot that's all about toilet humor
 
+https://discordapp.com/oauth2/authorize?client_id=174147031172907017&scope=bot&permissions=0
+
 ### Features
 
 - Farts at people when they say butt related words
