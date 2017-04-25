@@ -1,7 +1,9 @@
 # butt
-A Discord bot that's all about toilet humor
 
-https://discordapp.com/oauth2/authorize?client_id=174147031172907017&scope=bot&permissions=0
+[![Add to Discord](https://img.shields.io/badge/Add%20to-Discord-7289da.svg)](
+https://discordapp.com/oauth2/authorize?client_id=174147031172907017&scope=bot&permissions=0)
+
+A Discord bot that's all about toilet humor.
 
 ### Features
 
