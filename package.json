@@ -1,22 +1,12 @@
 {
   "name": "butt",
-  "version": "1.0.0",
-  "description": "butt",
-  "main": "butt.js",
+  "version": "1.1.0",
   "dependencies": {
-    "discord.io": "^1.8.1"
+    "discord.js": "^11.1.0",
+    "dotenv": "^4.0.0",
+    "lodash": "^4.17.4"
   },
-  "devDependencies": {},
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/niksudan/butt.git"
-  },
-  "keywords": [
-    "butt"
-  ],
-  "author": "butt",
-  "bugs": {
-    "url": "https://github.com/niksudan/butt/issues"
-  },
-  "homepage": "https://github.com/niksudan/butt#readme"
+  "scripts": {
+    "start": "node ./src"
+  }
 }
