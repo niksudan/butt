@@ -1,7 +1,4 @@
-# butt
-
-[![Add to Discord](https://img.shields.io/badge/Add%20to-Discord-7289da.svg)](
-https://discordapp.com/oauth2/authorize?client_id=174147031172907017&scope=bot&permissions=0)
+# butt [![GitHub release](https://img.shields.io/github/release/niksudan/butt.svg)](https://github.com/niksudan/butt/releases) [![Add to Discord](https://img.shields.io/badge/Add%20to-Discord-7289da.svg)](https://discordapp.com/oauth2/authorize?client_id=174147031172907017&scope=bot&permissions=0)
 
 A Discord bot that's all about toilet humor.
 
