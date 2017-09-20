@@ -2,6 +2,8 @@
 
 A Discord bot that's all about toilet humor.
 
+> **butt bot is the only reason I didn't end my life last month** - Tootyfruity
+
 ### Features
 
 - Farts at people when they say butt related words
