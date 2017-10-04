@@ -2,14 +2,16 @@
 
 A Discord bot that's all about toilet humor.
 
+## Testimonials
+
 > **butt bot is the only reason I didn't end my life last month** - Tootyfruity
 
-### Features
+## Features
 
 - Farts at people when they say butt related words
 - [Cloud to butt](https://chrome.google.com/webstore/detail/cloud-to-butt-plus/apmlngnhgbnjpajelfkmabhkfapgnoai) integration
 
-### Installation
+## Installation
 
 - `npm install`
 - Create a `config.json` in your directory with `token` and `user` fields (You can get a token for your application [here](https://discordapp.com/developers/applications/me))
