@@ -4,7 +4,11 @@ A Discord bot that's all about toilet humor.
 
 ## Testimonials
 
-> **butt bot is the only reason I didn't end my life last month** - Tootyfruity
+> 🗣️ *"Butt is the best"*
+
+> 🗣️ *"butt bot is the only reason I didn't end my life last month"*
+
+> 🗣️ *"I want to make a bot so that everytime someone sets off butt bot, it sends a message saying 'fuck buttbot'"*
 
 ## Features
 
