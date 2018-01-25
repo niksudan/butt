@@ -13,8 +13,12 @@ const FART_CHAR_LENGTH = 7;
 class Butt {
   constructor(token) {
     this.client = new Discord.Client();
+    this.didReply = false;
   }
 
+  /**
+   * Fart at people
+   */
   fart(message) {
     if (message.content.match(FART_REGEX)) {
       let response = '';
@@ -23,34 +27,58 @@ class Butt {
           response += char;
         })
       });
-      message.reply(response);
+      this.reply(message, response);
     }
   }
 
+  /**
+   * Correct people
+   */
   cloudToButt(message) {
     if (message.content.match(CLOUD_REGEX)) {
-      const response = message.replace(/the cloud/gi, "my butt").replace(/Cloud/g, "Butt").replace(/cloud/gi, "butt");
-      message.reply(`I think you mean to say "${response}"`);
+      const response = message.content.replace(/the cloud/gi, "my butt").replace(/Cloud/g, "Butt").replace(/cloud/gi, "butt");
+      this.reply(message, `I think you mean to say "${response}"`);
     }
   }
 
+  /**
+   * Help people
+   */
   help(message) {
     if (message.content.match(HELP_REGEX)) {
-      message.reply('I just fart at people, what do you expect? http://github.com/niksudan/butt');
+      this.reply(message, 'I just fart at people, what do you expect? http://github.com/niksudan/butt');
     }
   }
 
-  start() {
+  /**
+   * Reply to people
+   * @param {Object} message 
+   * @param {String} text 
+   */
+  reply(message, text) {
+    if (!this.didReply) {
+      message.reply(text);
+      this.didReply = true;
+    }
+  }
+
+  /**
+   * Be a butt to people
+   */
+  poop() {
     this.client.login(process.env.TOKEN);
     this.client.on('ready', () => {
       console.log('it\'s butt time');
     });
     this.client.on('message', (message) => {
-      this.fart(message);
-      this.cloudToButt(message);
-      this.help(message);
+      if (!message.author.bot) {
+        this.didReply = false;
+        this.help(message);
+        this.cloudToButt(message);
+        this.fart(message);
+      }
     });
   }
 }
 
-new Butt().start();
+new Butt().poop();
