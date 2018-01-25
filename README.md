@@ -2,7 +2,21 @@
 
 A Discord bot that's all about toilet humor.
 
+## Testimonials
+
+> 🗣️ *"Butt is the best"*
+
+> 🗣️ *"butt bot is the only reason I didn't end my life last month"*
+
+> 🗣️ *"I want to make a bot so that everytime someone sets off butt bot, it sends a message saying 'fuck buttbot'"*
+
 ## Features
 
 - Farts at people when they say butt related words
 - [Cloud to butt](https://chrome.google.com/webstore/detail/cloud-to-butt-plus/apmlngnhgbnjpajelfkmabhkfapgnoai) integration
+
+## Installation
+
+- `npm install`
+- Create a `config.json` in your directory with `token` and `user` fields (You can get a token for your application [here](https://discordapp.com/developers/applications/me))
+- `node butt.js` to run
