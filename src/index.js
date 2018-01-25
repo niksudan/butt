@@ -17,7 +17,7 @@ class Butt {
 
   fart(message) {
     if (message.content.match(FART_REGEX)) {
-      let response;
+      let response = '';
       FART_CHARS.forEach((char) => {
         _.times(randomInt(FART_CHAR_LENGTH) + 1, () => {
           response += char;
