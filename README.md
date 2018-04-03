@@ -10,6 +10,8 @@ A Discord bot that's all about toilet humor.
 
 > 🗣️ *"I want to make a bot so that everytime someone sets off butt bot, it sends a message saying 'fuck buttbot'"*
 
+> 🗣️ *"your bot sucks"*
+
 ## Features
 
 - Farts at people when they say butt related words
