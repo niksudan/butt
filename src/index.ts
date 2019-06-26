@@ -1,6 +1,6 @@
-const Discord = require('discord.js');
-const randomInt = require('random-int');
-const _ = require('lodash');
+import * as Discord from 'discord.js';
+import * as randomInt from 'random-int';
+import * as times from 'lodash.times';
 
 require('dotenv').config();
 
@@ -11,7 +11,10 @@ const FART_CHARS = ['P', 'F', 'T', 'H'];
 const FART_CHAR_LENGTH = 7;
 
 class Butt {
-  constructor(token) {
+  client: Discord.Client;
+  didReply: boolean;
+
+  constructor() {
     this.client = new Discord.Client();
     this.didReply = false;
   }
@@ -19,13 +22,13 @@ class Butt {
   /**
    * Fart at people
    */
-  fart(message) {
+  fart(message: Discord.Message) {
     if (message.content.match(FART_REGEX)) {
       let response = '';
       FART_CHARS.forEach((char) => {
-        _.times(randomInt(FART_CHAR_LENGTH) + 1, () => {
+        times(randomInt(FART_CHAR_LENGTH) + 1, () => {
           response += char;
-        })
+        });
       });
       this.reply(message, response);
     }
@@ -34,9 +37,12 @@ class Butt {
   /**
    * Correct people
    */
-  cloudToButt(message) {
+  cloudToButt(message: Discord.Message) {
     if (message.content.match(CLOUD_REGEX)) {
-      const response = message.content.replace(/the cloud/gi, "my butt").replace(/Cloud/g, "Butt").replace(/cloud/gi, "butt");
+      const response = message.content
+        .replace(/the cloud/gi, 'my butt')
+        .replace(/Cloud/g, 'Butt')
+        .replace(/cloud/gi, 'butt');
       this.reply(message, `I think you mean to say "${response}"`);
     }
   }
@@ -44,18 +50,19 @@ class Butt {
   /**
    * Help people
    */
-  help(message) {
+  help(message: Discord.Message) {
     if (message.content.match(HELP_REGEX)) {
-      this.reply(message, 'I just fart at people, what do you expect? http://github.com/niksudan/butt');
+      this.reply(
+        message,
+        'I just fart at people, what do you expect? https://github.com/niksudan/butt',
+      );
     }
   }
 
   /**
    * Reply to people
-   * @param {Object} message 
-   * @param {String} text 
    */
-  reply(message, text) {
+  reply(message: Discord.Message, text: string) {
     if (!this.didReply) {
       message.reply(text);
       this.didReply = true;
@@ -68,7 +75,7 @@ class Butt {
   poop() {
     this.client.login(process.env.TOKEN);
     this.client.on('ready', () => {
-      console.log('it\'s butt time');
+      console.log("it's butt time");
     });
     this.client.on('message', (message) => {
       if (!message.author.bot) {
