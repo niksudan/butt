@@ -17,4 +17,5 @@ A Discord bot that's all about toilet humor.
 ## Features
 
 - Farts at people when they say butt related words
+- Reacts to the poo emoji
 - [Cloud to butt](https://chrome.google.com/webstore/detail/cloud-to-butt-plus/apmlngnhgbnjpajelfkmabhkfapgnoai) integration
