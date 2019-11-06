@@ -73,8 +73,11 @@ class Butt {
    * React to the best emoji
    */
   react(message: Discord.Message) {
-    if ([':poop:', '💩'].indexOf(message.content) !== -1) {
+    if (message.content.includes(':poop:') || message.content.includes('💩')) {
       message.react('💩');
+    }
+    if (message.content.includes(':peach:') || message.content.includes('🍑')) {
+      message.react('🍑');
     }
   }
 
