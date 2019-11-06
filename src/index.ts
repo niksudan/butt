@@ -70,6 +70,15 @@ class Butt {
   }
 
   /**
+   * React to the best emoji
+   */
+  react(message: Discord.Message) {
+    if ([':poop:', '💩'].indexOf(message.content) !== -1) {
+      message.react('💩');
+    }
+  }
+
+  /**
    * Be a butt to people
    */
   poop() {
@@ -83,6 +92,7 @@ class Butt {
         this.help(message);
         this.cloudToButt(message);
         this.fart(message);
+        this.react(message);
       }
     });
   }
