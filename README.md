@@ -14,7 +14,7 @@ A Discord bot that's all about toilet humor.
 
 > 🗣️ *"WHY THE FUCK THE BOT CALLED BUTT"*
 
-> 🗣️ *fuck this ret\*ard bot*
+> 🗣️ *"fuck this ret\*ard bot"*
 
 ## Features
 
