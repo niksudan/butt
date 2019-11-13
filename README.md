@@ -19,3 +19,4 @@ A Discord bot that's all about toilet humor.
 - Farts at people when they say butt related words
 - Reacts to butt emojis
 - [Cloud to butt](https://chrome.google.com/webstore/detail/cloud-to-butt-plus/apmlngnhgbnjpajelfkmabhkfapgnoai) integration
+- Finishes a famous lyric from world famous singer, Samwell
