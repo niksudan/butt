@@ -53,7 +53,7 @@ class Butt {
    */
   samwell(message: Discord.Message) {
     if (message.content.match(WHATWHAT_REGEX)) {
-      this.reply(message, 'https://gph.is/g/ZYmpBKD');
+      this.reply(message, 'https://gph.is/15SrabT');
     }
   }
 
