@@ -2,6 +2,8 @@ import * as Discord from 'discord.js';
 import * as randomInt from 'random-int';
 import * as times from 'lodash.times';
 
+const info = require('../package.json');
+
 require('dotenv').config();
 
 const FART_REGEX = /\b(((bu(tt|m)|arse|poo(p((er)|y)?)?|shite?|booty)(hole|head)?|buttock|fart|crap|parp|rectum|derriere|sphincter|bottom|rear|rump|behind|dung|excre(te|ment))s?|(ass|gas|anus|tush)(es)?|assholes?|anal|glute(s|us maximus))\b/i;
@@ -26,7 +28,7 @@ class Butt {
   fart(message: Discord.Message) {
     if (message.content.match(FART_REGEX)) {
       let response = '';
-      FART_CHARS.forEach((char) => {
+      FART_CHARS.forEach(char => {
         times(randomInt(FART_CHAR_LENGTH) + 1, () => {
           response += char;
         });
@@ -47,7 +49,7 @@ class Butt {
       this.reply(message, `I think you mean to say "${response}"`);
     }
   }
-  
+
   /**
    * Quote everyone's favourite song
    */
@@ -92,6 +94,60 @@ class Butt {
   }
 
   /**
+   * Poop out stats
+   */
+  stats(message: Discord.Message) {
+    if (
+      message.author.id === process.env.AUTHOR_ID &&
+      message.content === 'buttstats'
+    ) {
+      const allGuilds = this.client.guilds.filter(guild => guild.available);
+
+      message.reply(
+        `:peach: **butt v${info.version}**\nMember of ${
+          allGuilds.size
+        } servers\nFarting at ${allGuilds
+          .map(guild => guild.memberCount)
+          .reduce((total, value) => value + total, 0)} members\n\n`,
+      );
+
+      const getServerInfo = async (
+        guilds: Discord.Collection<string, Discord.Guild>,
+      ) => {
+        let text = '';
+        for (let i = 0; i < 5; i += 1) {
+          text += this.guildToString(guilds.array()[i]);
+        }
+        return text;
+      };
+
+      message.reply(
+        `\n:trophy: **Top Servers**\n${getServerInfo(
+          allGuilds.sort((a, b) => b.memberCount - a.memberCount),
+        )}`,
+      );
+
+      message.reply(
+        `\n:baby: **Recent Servers**\n${getServerInfo(
+          allGuilds.sort((a, b) => b.joinedTimestamp - a.joinedTimestamp),
+        )}`,
+      );
+    }
+  }
+
+  /**
+   * Convert a guild into a readable format
+   */
+  guildToString(guild: Discord.Guild) {
+    let text = '';
+    text += `__${guild.name}__ (${guild.memberCount} members)\n`;
+    text += `Based in ${guild.region}\n`;
+    text += `Member since ${guild.joinedAt.getDate()}/${guild.joinedAt.getMonth() +
+      1}/${guild.joinedAt.getFullYear()}\n`;
+    return text;
+  }
+
+  /**
    * Be a butt to people
    */
   poop() {
@@ -99,15 +155,39 @@ class Butt {
     this.client.on('ready', () => {
       console.log("it's butt time");
     });
-    this.client.on('message', (message) => {
+
+    this.client.on('message', message => {
       if (!message.author.bot) {
         this.didReply = false;
+        this.stats(message);
         this.help(message);
         this.samwell(message);
         this.cloudToButt(message);
         this.fart(message);
         this.react(message);
       }
+    });
+
+    // Log invites
+    this.client.on('guildCreate', guild => {
+      this.client.fetchUser(process.env.AUTHOR_ID).then(author => {
+        author.sendMessage(
+          `:peach: **Added To Server!**\nIt's about to get smelly\n${this.guildToString(
+            guild,
+          )}`,
+        );
+      });
+    });
+
+    // Log removals/bans
+    this.client.on('guildDelete', guild => {
+      this.client.fetchUser(process.env.AUTHOR_ID).then(author => {
+        author.sendMessage(
+          `:cry: **Removed From Server**\nI've been relieved of gas... permanently\n${this.guildToString(
+            guild,
+          )}`,
+        );
+      });
     });
   }
 }
