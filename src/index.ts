@@ -111,7 +111,7 @@ class Butt {
           .reduce((total, value) => value + total, 0)} members\n\n`,
       );
 
-      const getServerInfo = async (
+      const getServerInfo = (
         guilds: Discord.Collection<string, Discord.Guild>,
       ) => {
         let text = '';
