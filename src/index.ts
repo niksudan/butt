@@ -6,7 +6,7 @@ const info = require('../package.json');
 
 require('dotenv').config();
 
-const FART_REGEX = /\b(((bu(tt|m)|arse|poo(p((er)|y)?)?|shite?|booty)(hole|head)?|buttock|fart|crap|parp|rectum|derriere|sphincter|bottom|rear|rump|behind|dung|excre(te|ment))s?|(ass|gas|anus|tush)(es)?|assholes?|anal|glute(s|us maximus))\b/i;
+const FART_REGEX = /\b(((bu(tt|m(med)?)|arse|poo(p((e(r|d))|y)?)?|shite?|booty)(hole|head|faced?)?|buttock|fart|crap|parp|rectum|derriere|sphincter|bottom|rear|rump|behind|dung|excre(te|ment))s?|(ass|gas|anus|tush)(es)?|assholes?|anal|glute(s|us maximus))\b/i;
 const CLOUD_REGEX = /cloud/i;
 const WHATWHAT_REGEX = /(i s(ai|e)d )?(w(ha|a|ah|u)t ?){2}/i;
 const HELP_REGEX = /wh(at|o|y)( the (hell|fuck|heck|))?('?s| is)( that)? butt( doing( here)?)?(\?*)/i;
@@ -28,7 +28,7 @@ class Butt {
   fart(message: Discord.Message) {
     if (message.content.match(FART_REGEX)) {
       let response = '';
-      FART_CHARS.forEach(char => {
+      FART_CHARS.forEach((char) => {
         times(randomInt(FART_CHAR_LENGTH) + 1, () => {
           response += char;
         });
@@ -55,7 +55,7 @@ class Butt {
    */
   samwell(message: Discord.Message) {
     if (message.content.match(WHATWHAT_REGEX)) {
-      this.reply(message, 'https://gph.is/15SrabT');
+      this.reply(message, '...in the butt');
     }
   }
 
@@ -101,13 +101,13 @@ class Butt {
       message.author.id === process.env.AUTHOR_ID &&
       message.content === 'buttstats'
     ) {
-      const allGuilds = this.client.guilds.filter(guild => guild.available);
+      const allGuilds = this.client.guilds.filter((guild) => guild.available);
 
       message.reply(
         `:peach: **butt v${info.version}**\nMember of ${
           allGuilds.size
         } servers\nFarting at ${allGuilds
-          .map(guild => guild.memberCount)
+          .map((guild) => guild.memberCount)
           .reduce((total, value) => value + total, 0)} members\n\n`,
       );
 
@@ -142,8 +142,9 @@ class Butt {
     let text = '';
     text += `__${guild.name}__ (${guild.memberCount} members)\n`;
     text += `Based in ${guild.region}\n`;
-    text += `Member since ${guild.joinedAt.getDate()}/${guild.joinedAt.getMonth() +
-      1}/${guild.joinedAt.getFullYear()}\n`;
+    text += `Member since ${guild.joinedAt.getDate()}/${
+      guild.joinedAt.getMonth() + 1
+    }/${guild.joinedAt.getFullYear()}\n`;
     return text;
   }
 
@@ -156,7 +157,7 @@ class Butt {
       console.log("it's butt time");
     });
 
-    this.client.on('message', message => {
+    this.client.on('message', (message) => {
       if (!message.author.bot) {
         this.didReply = false;
         this.stats(message);
@@ -169,8 +170,8 @@ class Butt {
     });
 
     // Log invites
-    this.client.on('guildCreate', guild => {
-      this.client.fetchUser(process.env.AUTHOR_ID).then(author => {
+    this.client.on('guildCreate', (guild) => {
+      this.client.fetchUser(process.env.AUTHOR_ID).then((author) => {
         author.sendMessage(
           `:peach: **Added To Server!**\nIt's about to get smelly\n${this.guildToString(
             guild,
@@ -180,8 +181,8 @@ class Butt {
     });
 
     // Log removals/bans
-    this.client.on('guildDelete', guild => {
-      this.client.fetchUser(process.env.AUTHOR_ID).then(author => {
+    this.client.on('guildDelete', (guild) => {
+      this.client.fetchUser(process.env.AUTHOR_ID).then((author) => {
         author.sendMessage(
           `:cry: **Removed From Server**\nI've been relieved of gas... permanently\n${this.guildToString(
             guild,
