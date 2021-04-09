@@ -6,7 +6,7 @@ const info = require('../package.json');
 
 require('dotenv').config();
 
-const FART_REGEX = /\b(((bu(tt|m(med)?)|arse|poo(p((e(r|d))|y)?)?|shite?|booty)(hole|head|faced?)?|buttock|fart|crap|parp|rectum|derriere|sphincter|bottom|rear|rump|behind|dung|excre(te|ment))s?|(ass|gas|anus|tush)(es)?|assholes?|anal|glute(s|us maximus))\b/i;
+const FART_REGEX = /\b(((bu(tt|m(med)?)|arse|poo(p((e(r|d))|y)?)?|shite?|booty)(hole|head|faced?)?|buttock|fart|crap|parp|rectum|derriere|sphincter|bottom|rear|rump|behind|dung|turd|excre(te|ment))s?|(ass|gas|anus|tush)(es)?|assholes?|anal|glute(s|us maximus))\b/i;
 const CLOUD_REGEX = /cloud/i;
 const WHATWHAT_REGEX = /(i s(ai|e)d )?(w(ha|a|ah|u)t ?){2}/i;
 const HELP_REGEX = /wh(at|o|y)( the (hell|fuck|heck|))?('?s| is)( that)? butt( doing( here)?)?(\?*)/i;
