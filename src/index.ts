@@ -1,5 +1,4 @@
 import * as Discord from 'discord.js';
-import * as randomInt from 'random-int';
 import * as times from 'lodash.times';
 
 const info = require('../package.json');
@@ -29,7 +28,7 @@ class Butt {
     if (message.content.match(FART_REGEX)) {
       let response = '';
       FART_CHARS.forEach((char) => {
-        times(randomInt(FART_CHAR_LENGTH) + 1, () => {
+        times(Math.ceil(Math.random() * FART_CHAR_LENGTH), () => {
           response += char;
         });
       });
@@ -101,7 +100,9 @@ class Butt {
       message.author.id === process.env.AUTHOR_ID &&
       message.content === 'buttstats'
     ) {
-      const allGuilds = this.client.guilds.filter((guild) => guild.available);
+      const allGuilds = this.client.guilds.cache.filter(
+        (guild) => guild.available,
+      );
 
       message.reply(
         `:peach: **butt v${info.version}**\nMember of ${
@@ -171,8 +172,8 @@ class Butt {
 
     // Log invites
     this.client.on('guildCreate', (guild) => {
-      this.client.fetchUser(process.env.AUTHOR_ID).then((author) => {
-        author.sendMessage(
+      this.client.users.fetch(process.env.AUTHOR_ID).then((author) => {
+        author.send(
           `:peach: **Added To Server!**\nIt's about to get smelly\n${this.guildToString(
             guild,
           )}`,
@@ -182,8 +183,8 @@ class Butt {
 
     // Log removals/bans
     this.client.on('guildDelete', (guild) => {
-      this.client.fetchUser(process.env.AUTHOR_ID).then((author) => {
-        author.sendMessage(
+      this.client.users.fetch(process.env.AUTHOR_ID).then((author) => {
+        author.send(
           `:cry: **Removed From Server**\nI've been relieved of gas... permanently\n${this.guildToString(
             guild,
           )}`,
