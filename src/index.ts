@@ -193,4 +193,9 @@ class Butt {
   }
 }
 
-new Butt().poop();
+try {
+  new Butt().poop();
+} catch (e) {
+  console.log('butt was ass-ass-inated...');
+  console.log(e.message);
+}
