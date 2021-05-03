@@ -1,9 +1,19 @@
 import * as Discord from 'discord.js';
 import * as times from 'lodash.times';
+import * as Sentry from '@sentry/node';
+import * as Tracing from '@sentry/tracing';
 
 const info = require('../package.json');
 
 require('dotenv').config();
+
+// Initialise Sentry if defined
+if (process.env.SENTRY_DSN) {
+  Sentry.init({
+    dsn: process.env.SENTRY_DSN,
+    tracesSampleRate: 1.0,
+  });
+}
 
 const FART_REGEX = /\b(((bu(tt|m(med)?)|arse|poo(p((e(r|d))|y)?)?|shite?|booty)(hole|head|faced?)?|buttock|(f|sh)art|crap|parp|rectum|derriere|sphincter|bottom|rear|rump|behind|dung|turd|excre(te|ment))s?|(ass|gas|anus|tush)(es)?|assholes?|anal|glute(s|us maximus))\b/i;
 const CLOUD_REGEX = /cloud/i;
@@ -199,4 +209,5 @@ try {
 } catch (e) {
   console.log('butt was ass-ass-inated...');
   console.log(e.message);
+  Sentry.captureException(e);
 }
