@@ -2,6 +2,10 @@
 
 A Discord bot that's all about toilet humor.
 
+## ⚠️ IMPORTANT NOTICE
+
+Since [Discord's changes to the way it's API works in September 2022](https://support-dev.discord.com/hc/en-us/articles/8541214983959-Developer-ToS-and-Policy-Updates), Butt Bot is unfortunately no longer working, and will not work in the forseeable future. I hope you had a flatulent time with it!
+
 ## Testimonials
 
 > 🗣️ *"Butt is the best"*
